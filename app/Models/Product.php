@@ -5,9 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Http;
+use Laravel\Scout\Searchable;
 
 class Product extends Model
 {
+
+     
     protected $fillable = ['variations', 'num_of_sale'];
 
     protected static function boot()
