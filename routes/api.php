@@ -217,20 +217,18 @@ Route::prefix('v3')->group(function () {
 //     Route::post('carts/add', 'Api\V2\CartController@add')->middleware('auth:api');
 
 //     Route::post('carts/change-quantity', 'Api\V2\CartController@changeQuantity');
-//     Route::post('carts/increment', 'Api\V2\CartController@increment');
-//     Route::post('carts/decrement', 'Api\V2\CartController@decrement');
+    Route::post('carts/increment', [CartController::class,'increment']);
+    Route::post('carts/decrement', [CartController::class,'decrement']);
 
-//     Route::post('carts/add-free', 'Api\V2\CartController@addFree');
-//     Route::post('carts/remove-free', 'Api\V2\CartController@removeFree');
+    Route::post('carts/add-free', [CartController::class,'addFree']);//done***
+    Route::post('carts/remove-free', [CartController::class,'removeFree']);//no method in controller
 //     Route::apiResource('carts', 'Api\V2\CartController')->only('destroy');
-//     Route::post('carts/{user_id}', 'Api\V2\CartController@getList')->middleware('auth:api');
+    Route::post('carts/{user_id}', [CartController::class,'getList'])->middleware('api');
 //     //get cart list for temp user
-    Route::get('carts/item/{user_id}', [CartController::class,'getCartItem']);
+    Route::get('carts/item/{user_id}', [CartController::class,'getCartItem']);//done***
 //     Route::get('carts/validate/{user_id}', 'Api\V2\CartController@validateCartItem');
-//     Route::post('carts/add/{user_id}', 'Api\V2\CartController@add');
-
-
-//     Route::get('carts/remove-all/{user_id}', 'Api\V2\CartController@removeAll');
+    Route::post('carts/add/{user_id}', [CartController::class,'add']);//done***
+    Route::get('carts/remove-all/{user_id}', [CartController::class,'removeAll']);//done***
 
 
 
